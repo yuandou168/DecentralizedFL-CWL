@@ -57,7 +57,7 @@ https://github.com/ResearchDemo23/DecentralizedFL-CWL/assets/143496839/2b4879cf-
     - Select the FL experiment (CWL_workflow_experiment_infrastructure_provision.yml) option
     - run `gh run watch` to watch the jobs status
     - go to actions and check the progress of the `CWL_workflow_experiment_infrastructure_provision` workflow
-- If you want to run experiments based on source code changes if we have already provisioned a server for the communication server
+- If you want to run experiments based on source code changes if you have already provisioned a server for the communication server
      - Make the required changes in the source code
      - Push changes 
      - Assuming that changes are pushed from client_training, then go to actions and watch the progress of the `decentralized_training` workflow
