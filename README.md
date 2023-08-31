@@ -35,7 +35,7 @@ https://github.com/ResearchDemo23/DecentralizedFL-CWL/assets/143496839/2b4879cf-
 
 
 ## Using this demo: 
-> **_Please note:_** We are not responsible for any expenses if you are using your own AWS account while using this demo nor for any security concerns.
+> **_Please note:_** We are not responsible for any use or misuse of the code or its consequences. For example we are not responsible for any expenses if you are using your own AWS account while using this demo nor for any security concerns.
 >
 - Changes needed:
   - Creating docker images for client training based on `Dockers_source_code/client_training`, `Dockers_source_code/client_registration` and `Dockers_source_code/communication_server` and pushing them to your own docker hub to be used in the experiments.
