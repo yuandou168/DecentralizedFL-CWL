@@ -23,9 +23,14 @@
       The server is created with the following terraform template : `communication_server/main.tf`
 
 ## Architecture 
-![architecture_final](https://github.com/ThesisCh/Federated_Learning_CWL/assets/25685331/c1cb622a-1710-4869-991e-ec53ecc87666)
+![architecture_final](https://github.com/ResearchDemo23/DecentralizedFL-CWL/assets/143496839/25be4f15-ed96-4f64-9d00-9723e294ee5f)
+
 
 ## Video demonstration 
+
+
+
+https://github.com/ResearchDemo23/DecentralizedFL-CWL/assets/143496839/2b4879cf-353d-44fb-b644-e4d4df1dba17
 
 
 
