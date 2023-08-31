@@ -1,0 +1,31 @@
+version: '1'
+services:
+  client_register:
+    image: chroniskaust/client_register_test:latest
+    container_name: client_register
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    volumes:
+      - "./:/register/files"
+    restart: always
+
+  client_decentralized:
+    image: chroniskaust/client_decentralized:latest
+    container_name: client_decentralized
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    volumes:
+      - "./:/client/files"
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
+    restart: always
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 1 client_decentralized client_register
+    restart: always

@@ -1,0 +1,17 @@
+clients: []
+communication_server_ip: 
+mode_aggregation: aggregation
+mode_initialization: initialization
+discover_clients_script:
+  class: File
+  path: find_clients_updated.py
+random_client_generator_script:
+  class: File
+  path: random_client.py
+round: '0'
+rounds: 12
+
+
+
+
+
