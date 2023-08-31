@@ -1,0 +1,44 @@
+name: Client registration
+on:
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        required: false
+        default: true
+  push:
+    branches:
+      - 'main'
+    paths: 
+      - 'Dockers_source_code/client_registration/**/*'
+defaults:
+  run:
+    working-directory: ./Dockers_source_code/client_registration
+
+    
+jobs:
+
+
+  build_new_FL_client_image:
+    runs-on: ubuntu-latest  
+    steps:
+      
+      - uses: actions/checkout@v2  
+      - name: Login to Docker Repository
+        uses: docker/login-action@v1
+        with:
+              username: ${{ secrets.DOCKER_USERNAME }}
+              password: ${{ secrets.DOCKER_PASSWORD }}
+
+      
+      - name: Build comm server image
+        uses: docker/build-push-action@v2
+        with:
+            file: ./Dockers_source_code/client_registration/Dockerfile
+            context: ./Dockers_source_code/client_registration/
+            push: true
+            tags: chroniskaust/client_register_test:latest
+
+
+
+

@@ -1,0 +1,93 @@
+name: FL provision + FL experiment
+on:
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./Actions_workflow
+
+jobs:
+
+  deploy_communication_server:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Install AWS CLI
+        run: |
+              pip install awscli
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_wrapper: false
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Validate Terraform
+        run: terraform validate
+
+      - name: Plan Terraform
+        run: terraform plan
+
+      - name: Apply Terraform
+        run: |
+          terraform apply -auto-approve
+          echo "COMMUNICATION_IP"=$(terraform output -raw CommunicationServerIpDecentralized)  >> $GITHUB_ENV
+          touch communication.env
+          echo $(terraform output -raw CommunicationServerIpDecentralized) > communication.env
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: communication server ip
+          file_pattern: '*.env'
+
+
+      - uses: actions/checkout@v2  
+      - name: Login to Docker Repository
+        uses: docker/login-action@v1
+        with:
+              username: ${{ secrets.DOCKER_USERNAME }}
+              password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+      - name: update client registration docker 
+        uses: docker/build-push-action@v2
+        with:
+            file: ./Dockers_source_code/client_registration/Dockerfile
+            context: ./Dockers_source_code/client_registration/
+            push: true
+            tags: chroniskaust/client_register_test:latest
+            build-args: |
+              COMMUNICATION_IP=http://${{env.COMMUNICATION_IP}}
+
+      - name: update comm server ip
+        working-directory: ./CWL_Workflow
+        run: |
+          sed -E -i.backup 's/(communication_server_ip: ).*/\1http:\/\/${{env.COMMUNICATION_IP}}/' decentralized_input.yml
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+            python-version: 3.x  #
+
+      - name: Install dependencies
+        run: pip install -r requirements_git_actions.txt  
+      - name: Install yaml
+        run: pip install pyyaml; sleep 240;
+      
+
+      - name: Running Decentralized Federated Learning 
+        working-directory: ./CWL_Workflow
+        run: time cwltool --enable-ext --parallel decentralizedFL.cwl decentralized_input.yml 
+
+
+

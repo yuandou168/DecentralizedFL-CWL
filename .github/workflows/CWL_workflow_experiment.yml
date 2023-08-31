@@ -1,0 +1,49 @@
+name: FL experiment
+
+on:
+  workflow_run:
+    workflows: ["Decentralized training", "Communication Server"]
+    types:
+      - completed
+
+defaults:
+  run:
+    working-directory: ./Actions_workflow
+
+jobs:
+
+  execute_cwl_decentralized_experiment:
+    runs-on: ubuntu-latest  
+    steps:
+      
+      - uses: actions/checkout@v2
+      - name: Get communication server ip 
+        run: |
+            echo "COMMUNICATION_IP"=$(cat communication.env)  >> $GITHUB_ENV
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+            python-version: 3.x  #
+
+      - name: Install dependencies
+        run: pip install -r requirements_git_actions.txt 
+
+      - name: Install yaml
+        run: pip install pyyaml
+        
+      - name: Wait to deploy changes on client FL nodes
+        run : sleep 240;
+
+      - name: update comm server ip
+        working-directory: ./CWL_Workflow
+        run: |
+          sed -E -i.backup 's/(communication_server_ip: ).*/\1http:\/\/${{env.COMMUNICATION_IP}}/' decentralized_input.yml
+  
+      - name: Running Decentralized Federated Learning CWL workflow
+        working-directory: ./CWL_Workflow
+        run: time cwltool --enable-ext --parallel decentralizedFL.cwl decentralized_input.yml 
+
+
+
+
