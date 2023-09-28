@@ -64,8 +64,11 @@ https://github.com/ResearchDemo23/DecentralizedFL-CWL/assets/143496839/2b4879cf-
      - Watch the progress of the `CWL_workflow_experiment` that should run as soon as the decentralized_training workflow is finished
    
 ## Citation:
--- Bibtex 
-{
+The initial idea of this project has been published in the proceedings of the 19th  IEEE International Conference on e-Science (Link to the conference: https://www.escience-conference.org/2023/).
+
+- Kontomaris, Chronis, Yuandou Wang, and Zhiming Zhao. "CWL-FLOps: A Novel Method for Federated Learning Operations at Scale." 2023 IEEE 19th International Conference on e-Science (e-Science). IEEE Computer Society, 2023.
+  
+- Bibtex  
 @inproceedings{kontomaris2023cwl,
   title={CWL-FLOps: A Novel Method for Federated Learning Operations at Scale},
   author={Kontomaris, Chronis and Wang, Yuandou and Zhao, Zhiming},
@@ -74,7 +77,7 @@ https://github.com/ResearchDemo23/DecentralizedFL-CWL/assets/143496839/2b4879cf-
   year={2023},
   organization={IEEE Computer Society}
 }
-}
+
 
 ## Acknowledgements
 This project uses code from the following source:
