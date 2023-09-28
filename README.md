@@ -63,7 +63,19 @@ https://github.com/ResearchDemo23/DecentralizedFL-CWL/assets/143496839/2b4879cf-
      - Assuming that changes are pushed from client_training, then go to actions and watch the progress of the `decentralized_training` workflow
      - Watch the progress of the `CWL_workflow_experiment` that should run as soon as the decentralized_training workflow is finished
    
-  
+## Citation:
+-- Bibtex 
+{
+@inproceedings{kontomaris2023cwl,
+  title={CWL-FLOps: A Novel Method for Federated Learning Operations at Scale},
+  author={Kontomaris, Chronis and Wang, Yuandou and Zhao, Zhiming},
+  booktitle={2023 IEEE 19th International Conference on e-Science (e-Science)},
+  pages={1--2},
+  year={2023},
+  organization={IEEE Computer Society}
+}
+}
+
 ## Acknowledgements
 This project uses code from the following source:
 
