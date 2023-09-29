@@ -66,7 +66,7 @@ https://github.com/ResearchDemo23/DecentralizedFL-CWL/assets/143496839/2b4879cf-
 ## Citation:
 The initial idea of this project has been published in the proceedings of the 19th  IEEE International Conference on e-Science (Link to the conference: https://www.escience-conference.org/2023/).
 
-- Kontomaris Chronis, Yuandou Wang, and Zhiming Zhao. "CWL-FLOps: A Novel Method for Federated Learning Operations at Scale." 2023 IEEE 19th International Conference on e-Science (e-Science). IEEE Computer Society, 2023. Doi: 10.1109/e-Science58273.2023.10254788
+- Chronis Kontomaris, Yuandou Wang, and Zhiming Zhao. "CWL-FLOps: A Novel Method for Federated Learning Operations at Scale." 2023 IEEE 19th International Conference on e-Science (e-Science). IEEE Computer Society, 2023. Doi: 10.1109/e-Science58273.2023.10254788
   
 - Bibtex  
 @inproceedings{kontomaris2023cwl,
