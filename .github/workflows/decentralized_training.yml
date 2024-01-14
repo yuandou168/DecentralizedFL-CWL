@@ -34,7 +34,7 @@ jobs:
             file: ./Dockers_source_code/client_training/Dockerfile
             context: ./Dockers_source_code/client_training/
             push: true
-            tags: chroniskaust/client_decentralized:latest
+            tags: zhujiangheart/client_decentralized:latest
 
 
 

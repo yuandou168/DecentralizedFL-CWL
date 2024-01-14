@@ -1,7 +1,7 @@
 version: '1'
 services:
   client_register:
-    image: chroniskaust/client_register_test:latest
+    image: zhujiangheart/client_register_test:latest
     container_name: client_register
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -10,7 +10,7 @@ services:
     restart: always
 
   client_decentralized:
-    image: chroniskaust/client_decentralized:latest
+    image: zhujiangheart/client_decentralized:latest
     container_name: client_decentralized
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

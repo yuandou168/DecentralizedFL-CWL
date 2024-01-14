@@ -34,7 +34,7 @@ jobs:
             file: ./Dockers_source_code/communication_server/Dockerfile
             context: ./Dockers_source_code/communication_server/
             push: true
-            tags: chroniskaust/federation_server_endpoint_test:latest
+            tags: zhujiangheart/federation_server_endpoint_test:latest
 
 
 
