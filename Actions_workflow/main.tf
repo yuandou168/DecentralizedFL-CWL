@@ -33,10 +33,10 @@ resource "aws_instance" "communication_server" {
   EOF
 
   root_block_device {
-    volume_type           = "gp2"
-    volume_size           = 8  # Replace with your desired volume size in GB
+    volume_type           = "gp3"
+    volume_size           = 10  # Replace with your desired volume size in GB
     delete_on_termination = true
-    iops                  = 100  # Replace with your desired IOPS (optional)
+    iops                  = 3000  # Replace with your desired IOPS (optional)
   }
  
 }
