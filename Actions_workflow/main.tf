@@ -2,14 +2,14 @@
 
 
 data "aws_security_group" "existing" {
-  id = "sg-09be7f8b32ac66cc2" # Replace with the actual security group ID
+  id = "sg-055359512c5897242" # Replace with the actual security group ID
 }
 
 
 resource "aws_instance" "communication_server" {
-  ami           = "ami-0715c1897453cabd1"  # Replace with your desired AMI ID
-  instance_type = "t2.small"
-  key_name      = "ChronisUva"
+  ami           = "ami-0c7217cdde317cfec"  # Replace with your desired AMI ID
+  instance_type = "t2.micro"
+  key_name      = "YuandouAWS"
   
   tags = {
     "Name" = "Communication_server_terraform"
@@ -33,10 +33,10 @@ resource "aws_instance" "communication_server" {
   EOF
 
   root_block_device {
-    volume_type           = "gp3"
-    volume_size           = 12  # Replace with your desired volume size in GB
+    volume_type           = "gp2"
+    volume_size           = 8  # Replace with your desired volume size in GB
     delete_on_termination = true
-    iops                  = 3000  # Replace with your desired IOPS (optional)
+    iops                  = 100  # Replace with your desired IOPS (optional)
   }
  
 }
