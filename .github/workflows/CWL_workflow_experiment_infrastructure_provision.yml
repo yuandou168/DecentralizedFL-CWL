@@ -65,7 +65,7 @@ jobs:
             file: ./Dockers_source_code/client_registration/Dockerfile
             context: ./Dockers_source_code/client_registration/
             push: true
-            tags: chroniskaust/client_register_test:latest
+            tags: zhujiangheart/client_register_test:latest
             build-args: |
               COMMUNICATION_IP=http://${{env.COMMUNICATION_IP}}
 
