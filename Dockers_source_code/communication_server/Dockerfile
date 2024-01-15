@@ -4,7 +4,7 @@ FROM python:3.8-slim-buster
 
 WORKDIR /files
 
-ADD requirements.txt requirements.txt
+ADD ./requirements.txt files/requirements.txt
 
 RUN --mount=type=cache,target=/root/.cache/pip3 pip3 install -r requirements.txt --no-cache-dir
 
