@@ -6,10 +6,10 @@ WORKDIR /files
 
 ADD requirements.txt requirements.txt
 
-# RUN --mount=type=cache,target=/root/.cache/pip3 pip3 install -r requirements.txt --no-cache-dir
+RUN --mount=type=cache,target=/root/.cache/pip3 pip3 install -r requirements.txt --no-cache-dir
 
-COPY ./requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt --no-cache-dir
+# COPY ./requirements.txt requirements.txt
+# RUN pip3 install -r requirements.txt --no-cache-dir
 
 
 COPY . .
