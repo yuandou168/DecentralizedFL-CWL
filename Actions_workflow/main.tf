@@ -7,9 +7,9 @@ data "aws_security_group" "existing" {
 
 
 resource "aws_instance" "communication_server" {
-  ami           = "ami-0c7217cdde317cfec"  # Replace with your desired AMI ID
+  ami           = "ami-0a3c3a20c09d6f377"  # Replace with your desired AMI ID
   instance_type = "t2.micro"
-  key_name      = "YuandouAWS"
+  key_name      = "YuandouAWS_FL"
   
   tags = {
     "Name" = "Communication_server_terraform"
@@ -34,7 +34,7 @@ resource "aws_instance" "communication_server" {
 
   root_block_device {
     volume_type           = "gp3"
-    volume_size           = 10  # Replace with your desired volume size in GB
+    volume_size           = 14  # Replace with your desired volume size in GB
     delete_on_termination = true
     iops                  = 3000  # Replace with your desired IOPS (optional)
   }
