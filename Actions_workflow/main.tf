@@ -28,8 +28,8 @@ resource "aws_instance" "communication_server" {
       yum update -y
       yum install -y docker
       service docker start
-      docker pull zhujiangheart/federation_server_endpoint_test:latest
-      sudo docker run -p 8088:8088 -d zhujiangheart/federation_server_endpoint_test:latest 
+      docker pull chroniskaust/federation_server_endpoint_test:latest
+      sudo docker run -p 8088:8088 -d chroniskaust/federation_server_endpoint_test:latest 
   EOF
 
   root_block_device {
